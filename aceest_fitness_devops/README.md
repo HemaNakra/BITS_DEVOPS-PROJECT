@@ -1,9 +1,29 @@
 # ACEest_Fitness DevOps Assignment
 
 ## Run locally
-```bash
+bash
 pip install -r requirements.txt
 flask --app wsgi:app run -p 8000
+
+Run tests
+
+pytest -q
+
+Docker
+docker build -t aceest_fitness .
+docker run --rm -p 8000:8000 aceest_fitness
+
+Endpoints
+GET / → Welcome message
+GET /health → Health check
+POST /add_workout → Add workout ({"workout":"Running","duration":30})
+GET /workouts → List all workouts
+
+GitHub Actions
+Runs on every push/PR
+Builds Docker image
+Runs Pytest inside Docker
+
 
 Overview
 
@@ -59,6 +79,7 @@ This README serves as the primary documentation for the repository. It describes
 
 Conclusion
 This project successfully demonstrates a complete DevOps workflow: starting from application development in Flask, version control with GitHub, unit testing with Pytest, containerization with Docker, and automation with GitHub Actions. Together, these practices enable efficient, reliable, and scalable software delivery — exactly the qualities needed for modern software engineering in startups like ACEest_Fitness and Gym.
+
 
 
 
